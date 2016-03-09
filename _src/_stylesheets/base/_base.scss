@@ -92,11 +92,12 @@ body {
 }
 
 .horzGrid {
-	background: url(/assets/images/horzGrid.png);
+	background: url(../images/horzGrid.png);
 }
 
 .book {
 	padding: $base-line-height * 4;
+  padding-top: $base-line-height;
 }
 
 h1, h2, h3 {
