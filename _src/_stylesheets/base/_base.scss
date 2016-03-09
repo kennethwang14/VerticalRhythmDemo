@@ -1,6 +1,8 @@
 // -----------------------------------------------------------------------------
-// This file contains very basic styles.
+// This file contains styles that are specific to the home page.
 // -----------------------------------------------------------------------------
+/* http://www.modularscale.com/?1&em&1.3333&web&undefined */
+/* This is hard coded to prevent Sass compile lag */
 
 /**
  * Set up a decent box model on the root element
@@ -19,15 +21,113 @@ html {
   box-sizing: inherit;
 } 
 
-/**
- * Basic styles for links
- */
-a {
-  color: $brand-color;
-  text-decoration: none;
+$base-font-size: 1rem;
+$base-line-height: $base-font-size * 1.25;
 
-  @include on-event {
-    color: $text-color;
-    text-decoration: underline;
+$type-scale: (
+  -1: 0.75rem,	/* H6 */
+  0: 1rem,   	/* Paragraph */
+  1: 1.333rem,	/* H5 */
+  2: 1.777rem,	/* H4 */
+  3: 2.37rem,  	/* H3 */
+  4: 3.16rem,  	/* H2 */
+  5: 4.213rem, 	/* H1 */
+);
+
+$line-heights: (
+  -1: $base-line-height,  		/* H6 */
+  0: $base-line-height,   		/* Paragraph */
+  1: $base-line-height,   		/* H5 */
+  2: $base-line-height * 2,     /* H4 */
+  3: $base-line-height * 2,     /* H3 */
+  4: $base-line-height * 2,     /* H2 */
+  5: $base-line-height * 3,     /* H1 */
+);
+
+$margin-bottoms: (
+  -1: $base-line-height,  		/* H6 */
+  0: $base-line-height,   		/* Paragraph */
+  1: $base-line-height,   		/* H5 */
+  2: $base-line-height,     /* H4 */
+  3: $base-line-height * 2,     /* H3 */
+  4: $base-line-height * 3,     /* H2 */
+  5: $base-line-height * 3,     /* H1 */
+);
+
+
+/* Helper functions */
+@function type-scale($level) {
+  @return map-get($type-scale, $level);
+}
+
+@function line-height($level) {
+  @return map-get($line-heights, $level);
+}
+
+@function margin-bottom($level) {
+  @return map-get($margin-bottoms, $level);
+}
+
+@mixin type-setting($level: 0) {
+  font-size: type-scale($level);
+  line-height: line-height($level);
+  margin-bottom: margin-bottom($level);
+}
+
+
+
+
+
+body {
+	font-size: 16px;
+	line-height: 1.5em;
+	font-family: sans-serif;
+}
+
+.buttonContainer {
+  position: absolute;
+  button {
+    display: block;
   }
+}
+
+.horzGrid {
+	background: url(/assets/images/horzGrid.png);
+}
+
+.book {
+	padding: $base-line-height * 4;
+}
+
+h1, h2, h3 {
+	text-align: center;
+}
+
+h3 {
+	font-weight: 100;
+}
+
+p {
+	text-indent: 1em;
+}
+
+.no-baseline {
+  lost-column: 1/2;
+	P { font-size: 1rem; line-height: 1.25; margin-bottom: 0.45em; };
+	h1 { font-size: 4.213rem; line-height: 0.8; margin-bottom: 0.6em; };
+	h2 { font-size: 3.16rem; line-height: 1.2;};
+	h3 { font-size: 2.37rem; line-height: 0.9; margin-bottom: 1em; };
+	h4 { font-size: 1.777rem; line-height: 1; margin-bottom: 0.5em; };
+	h5 { font-size: 1.33rem; line-height: 1.5; };
+}
+
+.baseline {
+  lost-column: 1/2;
+	p, ul, ol, pre, blockquote { @include type-setting(0) }
+	h1 { @include type-setting(5) }
+	h2 { @include type-setting(4) }
+	h3 { @include type-setting(3) }
+	h4 { @include type-setting(2) }
+	h5 { @include type-setting(1) }
+	h6 { @include type-setting(-1) }
 }
