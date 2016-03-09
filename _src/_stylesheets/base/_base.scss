@@ -22,7 +22,7 @@ html {
 } 
 
 $base-font-size: 1rem;
-$base-line-height: $base-font-size * 1.25;
+$base-line-height: $base-font-size * 1.5;
 
 $type-scale: (
   -1: 0.75rem,	/* H6 */
@@ -50,7 +50,7 @@ $margin-bottoms: (
   1: $base-line-height,   		/* H5 */
   2: $base-line-height,     /* H4 */
   3: $base-line-height * 2,     /* H3 */
-  4: $base-line-height * 3,     /* H2 */
+  4: $base-line-height * 2,     /* H2 */
   5: $base-line-height * 3,     /* H1 */
 );
 
@@ -114,11 +114,11 @@ p {
 
 .no-baseline {
   lost-column: 1/2;
-	P { font-size: 1rem; line-height: 1.25; margin-bottom: 0.45em; };
-	h1 { font-size: 4rem; line-height: 0.8; margin-bottom: 0.6em; };
-	h2 { font-size: 3rem; line-height: 1.2;};
+	P { font-size: 1rem; line-height: 1.3; margin-bottom: 0.3em; };
+	h1 { font-size: 3.5rem; line-height: 0.8; margin-bottom: 0.6em; };
+	h2 { font-size: 2.8rem; line-height: 1.2;};
 	h3 { font-size: 2rem; line-height: 1.2; margin-bottom: 1em; };
-	h4 { font-size: 1.75rem; line-height: 1; margin-bottom: 0.5em; };
+	h4 { font-size: 1.5rem; line-height: 1; margin-bottom: 0.5em; };
 	h5 { font-size: 1.33rem; line-height: 1.5; };
 }
 
